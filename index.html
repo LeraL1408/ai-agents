@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FoodPlan AI — мобильный LLM-прототип</title>
+  <meta name="description" content="Интерактивный прототип мобильного приложения внутри рамки смартфона." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="landing">
+    <section class="hero-copy" aria-label="Описание проекта">
+      <p class="eyebrow">Mobile-first AI nutrition assistant</p>
+      <h1>FoodPlan AI</h1>
+      <p class="lead">
+        Демонстрационный сайт показывает мобильное приложение прямо внутри экрана смартфона.
+        Внутри можно нажимать на меню, быстрые действия, карточки плана, рецептов, покупок и корзины.
+      </p>
+      <div class="hero-actions" aria-label="Подсказки">
+        <span>☰ боковая панель</span>
+        <span>чат с LLM</span>
+        <span>кликабельные карточки</span>
+      </div>
+    </section>
+
+    <section class="phone-stage" aria-label="Интерактивный смартфон">
+      <div class="phone-shell" role="application" aria-label="Прототип мобильного приложения FoodPlan AI">
+        <div class="phone-bezel">
+          <div class="speaker" aria-hidden="true"></div>
+          <div class="phone-screen">
+            <div class="status-bar" aria-hidden="true">
+              <span>9:41</span>
+              <span>●●● 5G 🔋</span>
+            </div>
+
+            <header class="app-header">
+              <button class="icon-btn" id="menuButton" type="button" aria-label="Открыть боковую панель">☰</button>
+              <div>
+                <strong>FoodPlan AI</strong>
+                <small>помощник по питанию</small>
+              </div>
+              <button class="avatar-btn" id="profileButton" type="button" aria-label="Открыть профиль">Л</button>
+            </header>
+
+            <aside class="drawer" id="drawer" aria-hidden="true">
+              <div class="drawer-head">
+                <div>
+                  <strong>Навигация</strong>
+                  <span>боковая панель приложения</span>
+                </div>
+                <button class="icon-btn" id="closeDrawer" type="button" aria-label="Закрыть боковую панель">×</button>
+              </div>
+              <nav class="drawer-nav" aria-label="Разделы приложения">
+                <button data-section="profile" type="button">👤 Профиль</button>
+                <button data-section="progress" type="button">📈 Прогресс</button>
+                <button data-section="plans" type="button">🥗 Планы питания</button>
+                <button data-section="recipes" type="button">🍳 Рецепты</button>
+                <button data-section="shopping" type="button">🛒 Списки покупок</button>
+                <button data-section="cart" type="button">🔗 Корзина</button>
+                <button data-section="history" type="button">💬 История чатов</button>
+                <button data-section="settings" type="button">⚙️ Настройки</button>
+              </nav>
+            </aside>
+            <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+
+            <section class="quick-panel" aria-label="Быстрые действия">
+              <button class="chip" data-action="plan" type="button">Составить план</button>
+              <button class="chip" data-action="shopping" type="button">Список покупок</button>
+              <button class="chip" data-action="recipe" type="button">Рецепт</button>
+            </section>
+
+            <section class="chat" id="chat" aria-live="polite" aria-label="Чат с LLM">
+              <article class="bubble assistant">
+                <p>Привет! Я помогу составить план питания, подобрать рецепты и собрать список покупок.</p>
+              </article>
+              <article class="bubble assistant card">
+                <strong>Попробуйте сценарий</strong>
+                <p>Нажмите «Составить план», затем создайте список покупок и корзину.</p>
+                <div class="card-actions">
+                  <button data-action="plan" type="button">Составить план</button>
+                  <button data-action="profile" type="button">Заполнить анкету</button>
+                </div>
+              </article>
+            </section>
+
+            <form class="composer" id="composer" autocomplete="off">
+              <input id="messageInput" name="message" type="text" placeholder="Спросите что-нибудь…" aria-label="Сообщение" />
+              <button type="submit" aria-label="Отправить сообщение">➤</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
